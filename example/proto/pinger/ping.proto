@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pinger;
+option go_package = "github.com/apptreesoftware/protoc-gen-twirp_dart/example/go_server/rpc/pinger";
+
+message PingRequest {
+  string name = 1;
+}
+
+message PingResponse {
+  string answer = 1;
+}
+
+service Pinger {
+  rpc Ping(PingRequest) returns (PingResponse);
+}

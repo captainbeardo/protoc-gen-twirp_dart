@@ -1,20 +1,23 @@
 import 'dart:async';
 
-import 'config/model/model.twirp.dart';
-import 'config/service/service.twirp.dart';
+import 'rpc/haberdasher/haberdasher.twirp.dart';
+import 'rpc/haberdasher/haberdasher.pb.dart';
+import 'rpc/pinger/ping.pb.dart';
 
 Future main(List<String> args) async {
-  var service = new DefaultHaberdasher('http://apptree.ngrok.io');
+  final service = HaberdasherProtobufClient("http://localhost:9200");
+
   try {
-    var hat = await service.makeHat(new Size(10));
+    final pr = await service.ping(PingRequest(name: "test client"));
+    print(pr);
+    final hat = await service.makeHat(Size(inches: 10));
     print(hat);
 
-    hat.dictionary["Test"] = 1;
-    hat.dictionary["Test2"] = 2;
-    hat.createdOn = new DateTime.now();
-    hat.dictionaryWithMessage["BackupSize"] = new Size(20);
-    var boughtHat = await service.buyHat(hat);
-    print(boughtHat);
+    final ia = await service.invalidArg(PingRequest(name: "test client"));
+    print(ia);
+  } on TwirpException catch (e) {
+    print("twirp exception ${e.toString()}");
+    print(e.code);
   } on Exception catch (e) {
     print("${e.toString()}");
   } catch (e) {

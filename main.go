@@ -17,8 +17,6 @@ func main() {
 			if f.Proto.GetName() == "google/protobuf/timestamp.proto" {
 				continue
 			}
-			p.NewGeneratedFile("twirp_dart_core.dart", "").Write([]byte(generator.CoreFile))
-			p.NewGeneratedFile("requester.dart", "").Write([]byte(generator.RequesterFile))
 			err := generator.CreateClientAPI(p, f)
 			if err != nil {
 				return err
