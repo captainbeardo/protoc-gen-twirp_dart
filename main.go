@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/apptreesoftware/protoc-gen-twirp_dart/generator"
+	"github.com/captainbeardo/protoc-gen-twirp_dart/generator"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/types/pluginpb"
 )

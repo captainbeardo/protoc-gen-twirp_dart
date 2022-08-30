@@ -1,4 +1,4 @@
-module github.com/apptreesoftware/protoc-gen-twirp_dart
+module github.com/captainbeardo/protoc-gen-twirp_dart
 
 go 1.17
 

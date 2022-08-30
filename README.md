@@ -29,7 +29,7 @@ In order to build the dart protobuf clients you will also need [Dart protobuf ge
 
 ## Usage
 
-    go install github.com/apptreesoftware/protoc-gen-twirp_dart
+    go install github.com/captainbeardo/protoc-gen-twirp_dart
     protoc --dart_out=./example/dart_client --twirp_dart_out=./example/dart_client ./example/proto/haberdasher
 
 All generated files will be placed relative to the specified output directory for the plugin.

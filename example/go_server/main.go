@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/apptreesoftware/protoc-gen-twirp_dart/example/go_server/rpc/haberdasher"
-	"github.com/apptreesoftware/protoc-gen-twirp_dart/example/go_server/rpc/pinger"
+	"github.com/captainbeardo/protoc-gen-twirp_dart/example/go_server/rpc/haberdasher"
+	"github.com/captainbeardo/protoc-gen-twirp_dart/example/go_server/rpc/pinger"
 	"github.com/twitchtv/twirp"
 )
 
