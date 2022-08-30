@@ -4,7 +4,7 @@ package haberdasher;
 
 import "pinger/ping.proto";
 
-option go_package = "github.com/apptreesoftware/protoc-gen-twirp_dart/example/go_server/rpc/haberdasher";
+option go_package = "github.com/captainbeardo/protoc-gen-twirp_dart/example/go_server/rpc/haberdasher";
 
 // A Hat is a piece of headwear made by a Haberdasher.
 message Hat {

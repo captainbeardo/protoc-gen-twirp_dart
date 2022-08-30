@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package pinger;
-option go_package = "github.com/apptreesoftware/protoc-gen-twirp_dart/example/go_server/rpc/pinger";
+option go_package = "github.com/captainbeardo/protoc-gen-twirp_dart/example/go_server/rpc/pinger";
 
 message PingRequest {
   string name = 1;

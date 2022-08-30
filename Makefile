@@ -9,7 +9,7 @@ LDFLAGS := -ldflags "-X main.Timestamp=${TIMESTAMP} -X main.Commit=${COMMIT} -X 
 all: clean test install
 
 install:
-	go install ${LDFLAGS} github.com/apptreesoftware/protoc-gen-twirp_dart
+	go install ${LDFLAGS} github.com/captainbeardo/protoc-gen-twirp_dart
 
 test:
 	go test -v ./...
@@ -29,7 +29,7 @@ example_proto: install
 
 
 build_linux:
-	GOOS=linux GOARCH=amd64 go build -o ${BINARY} ${LDFLAGS} github.com/apptreesoftware/protoc-gen-twirp_dart
+	GOOS=linux GOARCH=amd64 go build -o ${BINARY} ${LDFLAGS} github.com/captainbeardo/protoc-gen-twirp_dart
 
 clean:
 	-rm -f ${GOPATH}/bin/${BINARY}
