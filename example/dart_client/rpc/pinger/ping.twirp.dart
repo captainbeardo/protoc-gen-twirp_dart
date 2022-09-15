@@ -19,8 +19,13 @@ abstract class Pinger {
 class PingerProtobufClient implements Pinger {
 	final String hostname;
 	final String pathPrefix;
+	Client _httpClient = Client();
 
-  PingerProtobufClient(this.hostname, {this.pathPrefix = '/twirp'}) {}
+  PingerProtobufClient(this.hostname, {this.pathPrefix = '/twirp', Client? httpClient}) {
+		if (httpClient != null) {
+			_httpClient = httpClient;
+		}
+	}
 
 	Future<T> _makeRequest<T,	RT extends GeneratedMessage>(String path, RT request,
 		T Function(List<int>) builder) async {
@@ -32,7 +37,7 @@ class PingerProtobufClient implements Pinger {
 			'Content-Length': body.length.toString()
 		};
 
-		final response = await post(uri, headers: headers, body: body);
+		final response = await _httpClient.post(uri, headers: headers, body: body);
 
 		if (response.statusCode != 200) {
 			throw decodeException(response);
