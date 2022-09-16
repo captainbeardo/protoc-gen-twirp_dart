@@ -74,5 +74,5 @@ Run the server:
 In a new terminal run the client:
 
     cd example/dart_client
-    pub get
+    dart pub get
     dart main.dart
